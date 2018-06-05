@@ -1,6 +1,6 @@
 {
     "name": "three-es6-plugin",
-    "version": "0.0.0",
+    "version": "0.0.2",
     "description": "",
     "main": "build/index.js",
     "scripts": {
@@ -25,21 +25,6 @@
         "url": "https://github.com/w3reality/three-es6-plugin/issues"
     },
     "homepage": "https://github.com/w3reality/three-es6-plugin",
-    "dependencies": {
-        "three": "^0.92.0"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.0",
-        "babel-eslint": "^8.0.3",
-        "babel-loader": "^7.1.2",
-        "babel-plugin-add-module-exports": "^0.2.1",
-        "babel-preset-env": "^1.6.1",
-        "chai": "^4.1.2",
-        "eslint": "^4.13.1",
-        "eslint-loader": "^1.9.0",
-        "mocha": "^4.0.1",
-        "webpack": "^3.10.0",
-        "yargs": "^10.0.3"
-    }
+    "dependencies": {},
+    "devDependencies": {}
 }
