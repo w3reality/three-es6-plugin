@@ -11,8 +11,6 @@ class ThreeEs6Plugin {
             let root = path.resolve('./node_modules');
             console.log('root:', root);
             const pathBuild = `${root}/three-es6-plugin/build`;
-            fs.mkdirSync(pathBuild);
-            fs.mkdirSync(`${pathBuild}/es6`);
 
             // .../node_modules/three/build/three.js -> .../node_modules/three/
             // let rootThree = require.resolve('three').replace('build/three.js', '');
@@ -58,7 +56,7 @@ class ThreeEs6Plugin {
                 let fpath = `${root}/${src}`;
                 let fnameNoExt = path.basename(fpath, path.extname(fpath)); // OBJLoader
                 let str, dest = `${pathBuild}/index.js`;
-                str = `import ${fnameNoExt} from './es6/${fnameNoExt}'`;
+                str = `import ${fnameNoExt} from './es6/${fnameNoExt}';`;
                 fs.writeFileSync(dest, str, 'utf8')
             });
             //======== ========

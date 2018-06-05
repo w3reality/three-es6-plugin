@@ -25,6 +25,8 @@
         "url": "https://github.com/w3reality/three-es6-plugin/issues"
     },
     "homepage": "https://github.com/w3reality/three-es6-plugin",
-    "dependencies": {},
+    "dependencies": {
+        "babel-preset-env": "^1.7.0"
+    },
     "devDependencies": {}
 }
