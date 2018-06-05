@@ -52,13 +52,16 @@ class ThreeEs6Plugin {
             //----
             // save to three-es6-plugin/build/index.js
             //======== ========
+            let str, dest = `${pathBuild}/index.js`;
+            fs.writeFileSync(dest, "// generated file\n", 'utf8')
             this.srcList.forEach((src) => {
                 let fpath = `${root}/${src}`;
                 let fnameNoExt = path.basename(fpath, path.extname(fpath)); // OBJLoader
-                let str, dest = `${pathBuild}/index.js`;
-                str = `import ${fnameNoExt} from './es6/${fnameNoExt}';`;
-                fs.writeFileSync(dest, str, 'utf8')
+                str = `import ${fnameNoExt} from './es6/${fnameNoExt}';\n`;
+                fs.appendFileSync(dest, str, 'utf8')
             });
+            str = `export default { OBJLoader, MTLLoader, DDSLoader };\n`;  // TODO testttttt
+            fs.appendFileSync(dest, str, 'utf8')
             //======== ========
         });
         compiler.plugin('compilation', (compilation, params) => {
