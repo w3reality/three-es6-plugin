@@ -7,7 +7,7 @@ Good parts:  this plugin
 
 - provides ES6 module interface by transparently re-using original ``mrdoob/three.js``,
 - allows complete configuration of scripts to export,
-- **does not** depend on scripts' implementation of ``mrdoob/three.js`` (hence, always "up-to-date").
+- is orthogonal to ``mrdoob/three.js`` (hence, always "up-to-date").
 
 We have created this plugin as a webpack-based solution to: "Transform examples/js to support modules" (https://github.com/mrdoob/three.js/issues/9562).
 
