@@ -46,7 +46,7 @@ to ES6-export.  Here, we show a sample usage exporting
     ]));
 
     // workaround for infinite watch-compile loop...
-    plugins.push(new webpack.WatchIgnorePlugin([ /three-es6-plugin\/build\/.*\.js$/, ])),
+    plugins.push(new webpack.WatchIgnorePlugin([ /three-es6-plugin\/build\/.*\.js$/, ]));
 
 
 **2)** In our ES6 application code, we can now access the exported classes via ``three-es6-plugin``.
