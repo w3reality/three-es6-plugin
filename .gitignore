@@ -34,6 +34,7 @@ node_modules
 
 lib
 *.rst.html
+README.md
 
 build/*.js
 build/es6/*.js

@@ -1,6 +1,6 @@
 {
     "name": "three-es6-plugin",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "description": "",
     "main": "build/index.js",
     "scripts": {
