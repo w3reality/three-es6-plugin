@@ -7,7 +7,7 @@ class ThreeEs6Plugin {
     }
     apply(compiler) {
         compiler.plugin('compile', (params) => {
-            console.log('\n//////// compile start');
+            console.log('\nthree-es6-plugin: //////// compile start');
             let root = path.resolve('./node_modules');
             console.log('root:', root);
             const pathBuild = `${root}/three-es6-plugin/build`;
@@ -37,9 +37,9 @@ class ThreeEs6Plugin {
                 let r = fs.createReadStream(fpath);
                 let w = fs.createWriteStream(dest, {flags: 'a'});
                 w.on('close', () => {
-                    console.log(`\nwrote: ${dest}`);
                     str = `\nexport default THREE.${fnameNoExt};\n`;
                     fs.appendFileSync(dest, str, 'utf8')
+                    console.log(`\ngenerated: ${dest}`);
                 });
                 r.pipe(w);
                 //======== ========
@@ -54,23 +54,27 @@ class ThreeEs6Plugin {
             //======== ========
             let str, dest = `${pathBuild}/index.js`;
             fs.writeFileSync(dest, "// generated file\n", 'utf8')
+
+            let names = [];
             this.srcList.forEach((src) => {
                 let fpath = `${root}/${src}`;
-                let fnameNoExt = path.basename(fpath, path.extname(fpath)); // OBJLoader
+                let fnameNoExt = path.basename(fpath, path.extname(fpath)); // e.g. OBJLoader
+                names.push(fnameNoExt);
                 str = `import ${fnameNoExt} from './es6/${fnameNoExt}';\n`;
                 fs.appendFileSync(dest, str, 'utf8')
             });
-            str = `export default { OBJLoader, MTLLoader, DDSLoader };\n`;  // TODO testttttt
+
+            str = `export default { ${names.toString()} };\n`;
             fs.appendFileSync(dest, str, 'utf8')
             //======== ========
         });
         compiler.plugin('compilation', (compilation, params) => {
             compilation.plugin('optimize', () => {
-                console.log('\n////////optimize start');
+                console.log('\nthree-es6-plugin: //////// optimize start');
             });
         });
         compiler.plugin('emit', (compilation, callback) => {
-            console.log('\n////////emit assets output start');
+            console.log('\nthree-es6-plugin: //////// emit assets output start');
             callback();
         });
     }
