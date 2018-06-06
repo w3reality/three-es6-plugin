@@ -63,4 +63,7 @@ to ES6-export.  Here, we show a sample usage exporting
 
     // ...
 
+Demo
+====
 
+A standalone demo is here: https://github.com/w3reality/three-es6-plugin-demo
