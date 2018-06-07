@@ -1,7 +1,7 @@
 three-es6-plugin
 ================
 
-A webpack plugin that helps ES6-export ``.js`` scripts under ``three/examples/js/``.
+A webpack plugin that supports ES6-exporting scripts under ``three/examples/js/``.
 
 Good parts:  this plugin
 
