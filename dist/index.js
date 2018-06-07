@@ -7,9 +7,9 @@ class ThreeEs6Plugin {
     }
     apply(compiler) {
         compiler.plugin('compile', (params) => {
-            console.log('\nthree-es6-plugin: //////// compile start');
+            // console.log('\nthree-es6-plugin: //////// compile start');
             let root = path.resolve('./node_modules');
-            console.log('root:', root);
+            // console.log('root:', root);
             const pathBuild = `${root}/three-es6-plugin/build`;
 
             // .../node_modules/three/build/three.js -> .../node_modules/three/
@@ -39,7 +39,7 @@ class ThreeEs6Plugin {
                 w.on('close', () => {
                     str = `\nexport default THREE.${fnameNoExt};\n`;
                     fs.appendFileSync(dest, str, 'utf8')
-                    console.log(`\ngenerated: ${dest}`);
+                    console.log(`three-es6-plugin: generated: ${dest}`);
                 });
                 r.pipe(w);
                 //======== ========
@@ -66,17 +66,18 @@ class ThreeEs6Plugin {
 
             str = `export default { ${names.toString()} };\n`;
             fs.appendFileSync(dest, str, 'utf8')
+            console.log(`three-es6-plugin: generated: ${dest}`);
             //======== ========
         });
-        compiler.plugin('compilation', (compilation, params) => {
-            compilation.plugin('optimize', () => {
-                console.log('\nthree-es6-plugin: //////// optimize start');
-            });
-        });
-        compiler.plugin('emit', (compilation, callback) => {
-            console.log('\nthree-es6-plugin: //////// emit assets output start');
-            callback();
-        });
+        // compiler.plugin('compilation', (compilation, params) => {
+        //     compilation.plugin('optimize', () => {
+        //         console.log('\nthree-es6-plugin: //////// optimize start');
+        //     });
+        // });
+        // compiler.plugin('emit', (compilation, callback) => {
+        //     console.log('\nthree-es6-plugin: //////// emit assets output start');
+        //     callback();
+        // });
     }
 }
 module.exports = ThreeEs6Plugin;
