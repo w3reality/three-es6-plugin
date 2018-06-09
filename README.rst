@@ -75,4 +75,4 @@ to ES6-export.  Here, we show a sample usage exporting
 Demo
 ====
 
-A standalone demo is here: `w3reality/three-es6-plugin-demo <https://github.com/w3reality/three-es6-plugin-demo>`__
+A standalone demo is here: `three-es6-plugin-demo <https://github.com/w3reality/three-es6-plugin-demo>`__
