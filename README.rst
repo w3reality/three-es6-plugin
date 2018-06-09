@@ -58,17 +58,20 @@ to ES6-export.  Here, we show a sample usage exporting
     plugins.push(new webpack.WatchIgnorePlugin([ /three-es6-plugin\/build\/.*\.js$/, ]));
 
 
-**2)** In our ES6 application code, we can now access the exported classes via ``three-es6-plugin``.
+**2)** In ES6 code, we can now access the exported classes via ``three-es6-plugin/es6/``.
 
 ..  code::
 
     import * as THREE from 'three';
-    import THREE_PLUGIN from 'three-es6-plugin';
+    import OrbitControls from 'three-es6-plugin/es6/OrbitControls';
+    import OBJLoader from 'three-es6-plugin/es6/OBJLoader';
+    import MTLLoader from 'three-es6-plugin/es6/MTLLoader';
+    import DDSLoader from 'three-es6-plugin/es6/DDSLoader';
 
-    const controls = new THREE_PLUGIN.OrbitControls(...);
-    const objl = new THREE_PLUGIN.OBJLoader();
-    const mtll = new THREE_PLUGIN.MTLLoader();
-    const ddsl = new THREE_PLUGIN.DDSLoader();
+    const controls = new OrbitControls(...);
+    const objl = new OBJLoader();
+    const mtll = new MTLLoader();
+    const ddsl = new DDSLoader();
 
     // ...
 

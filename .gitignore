@@ -35,5 +35,4 @@ node_modules
 lib
 *.rst.html
 
-build/*.js
-build/es6/*.js
+es6/*.js

@@ -10,7 +10,7 @@ class ThreeEs6Plugin {
             // console.log('\nthree-es6-plugin: //////// compile start');
             let root = path.resolve('./node_modules');
             // console.log('root:', root);
-            const pathBuild = `${root}/three-es6-plugin/build`;
+            const pathBuild = `${root}/three-es6-plugin/es6`;
 
             // .../node_modules/three/build/three.js -> .../node_modules/three/
             // let rootThree = require.resolve('three').replace('build/three.js', '');
@@ -26,9 +26,9 @@ class ThreeEs6Plugin {
                 // (body)
                 // export default THREE.OBJLoader;
                 //----
-                // save to ${root}/three-es6-plugin/build/es6/OBJLoader.js
+                // save to ${root}/three-es6-plugin/es6/OBJLoader.js
                 //======== ========
-                let str, dest = `${pathBuild}/es6/${fname}`;
+                let str, dest = `${pathBuild}/${fname}`;
 
                 str = "import * as THREE from 'three';\n\n";
                 fs.writeFileSync(dest, str, 'utf8')
@@ -45,12 +45,12 @@ class ThreeEs6Plugin {
                 //======== ========
             });
 
-            // import OBJLoader from './es6/OBJLoader';
-            // import OBJLoader from './es6/MTLLoader';
+            // import OBJLoader from './OBJLoader';
+            // import OBJLoader from './MTLLoader';
             // ...
             // export default { OBJLoader, MTLLoader, ... };
             //----
-            // save to three-es6-plugin/build/index.js
+            // save to three-es6-plugin/es6/index.js
             //======== ========
             let str, dest = `${pathBuild}/index.js`;
             fs.writeFileSync(dest, "// generated file\n", 'utf8')
@@ -60,7 +60,7 @@ class ThreeEs6Plugin {
                 let fpath = `${root}/${src}`;
                 let fnameNoExt = path.basename(fpath, path.extname(fpath)); // e.g. OBJLoader
                 names.push(fnameNoExt);
-                str = `import ${fnameNoExt} from './es6/${fnameNoExt}';\n`;
+                str = `import ${fnameNoExt} from './${fnameNoExt}';\n`;
                 fs.appendFileSync(dest, str, 'utf8')
             });
 
