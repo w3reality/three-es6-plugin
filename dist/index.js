@@ -6,7 +6,7 @@ class ThreeEs6Plugin {
         this.srcList = srcList;
     }
     apply(compiler) {
-        compiler.plugin('compile', (params) => {
+        const onCompile = (params) => {
             // console.log('\nthree-es6-plugin: //////// compile start');
             let root = path.resolve('./node_modules');
             // console.log('root:', root);
@@ -68,7 +68,14 @@ class ThreeEs6Plugin {
             fs.appendFileSync(dest, str, 'utf8')
             console.log(`three-es6-plugin: generated: ${dest}`);
             //======== ========
-        });
+        };
+
+	if (compiler.hooks) { // webpack 4+
+            compiler.hooks.emit.tap('ThreeEs6Plugin', onCompile);
+	} else {
+            compiler.plugin('compile', onCompile);
+	}
+
         // compiler.plugin('compilation', (compilation, params) => {
         //     compilation.plugin('optimize', () => {
         //         console.log('\nthree-es6-plugin: //////// optimize start');
