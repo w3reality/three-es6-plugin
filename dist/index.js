@@ -71,7 +71,7 @@ class ThreeEs6Plugin {
         };
 
 	if (compiler.hooks) { // webpack 4+
-            compiler.hooks.emit.tap('ThreeEs6Plugin', onCompile);
+            compiler.hooks.compile.tap('ThreeEs6Plugin', onCompile);
 	} else {
             compiler.plugin('compile', onCompile);
 	}
