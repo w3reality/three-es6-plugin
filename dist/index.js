@@ -31,7 +31,7 @@ class ThreeEs6Plugin {
                 let str, dest = `${pathBuild}/${fname}`;
 
                 str = "import * as THREE from 'three';\n\n";
-                fs.writeFileSync(dest, str, 'utf8')
+                fs.writeFileSync(dest, str, 'utf8');
 
                 // https://stackoverflow.com/questions/33331603/append-one-large-file-to-other-large-file-in-nodejs
                 let r = fs.createReadStream(fpath);
@@ -53,7 +53,7 @@ class ThreeEs6Plugin {
             // save to three-es6-plugin/es6/index.js
             //======== ========
             let str, dest = `${pathBuild}/index.js`;
-            fs.writeFileSync(dest, "// generated file\n", 'utf8')
+            fs.writeFileSync(dest, "// generated file\n", 'utf8');
 
             let names = [];
             this.srcList.forEach((src) => {
