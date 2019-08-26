@@ -38,7 +38,7 @@ class ThreeEs6Plugin {
                 let w = fs.createWriteStream(dest, {flags: 'a'});
                 w.on('close', () => {
                     str = `\nexport default THREE.${fnameNoExt};\n`;
-                    fs.appendFileSync(dest, str, 'utf8')
+                    fs.appendFileSync(dest, str, 'utf8');
                     console.log(`three-es6-plugin: generated: ${dest}`);
                 });
                 r.pipe(w);
@@ -61,11 +61,11 @@ class ThreeEs6Plugin {
                 let fnameNoExt = path.basename(fpath, path.extname(fpath)); // e.g. OBJLoader
                 names.push(fnameNoExt);
                 str = `import ${fnameNoExt} from './${fnameNoExt}';\n`;
-                fs.appendFileSync(dest, str, 'utf8')
+                fs.appendFileSync(dest, str, 'utf8');
             });
 
             str = `export default { ${names.toString()} };\n`;
-            fs.appendFileSync(dest, str, 'utf8')
+            fs.appendFileSync(dest, str, 'utf8');
             console.log(`three-es6-plugin: generated: ${dest}`);
             //======== ========
         };
